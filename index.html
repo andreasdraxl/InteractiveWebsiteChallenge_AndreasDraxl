@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- sidebar disconacted left  -->
+    <aside id="sidebar">
+        <img src="./img/company-logo.svg" alt="Company Logo">
+        <ul id="nav-buttons">
+            <li>
+                <span class="material-symbols-outlined">account_balance</span>
+                Projects
+            </li>
+            <li>
+                <span class="material-symbols-outlined">person</span>
+                Users
+            </li>
+        </ul>
+    </aside>
+    <!-- sidebar disconacted left - closes here  -->
+
+    <main id="content">
+        <dialog id="new-project-modal">
+            <form>
+                <h2>New Project</h2>
+                <div class="input-list">
+                    <div class="form-field-container">
+                        <label>Name</label>
+                        <input type="text">
+                    </div>
+                    <div class="form-flield-container">
+                        <label>Discription</label>
+                        <textarea cols="30" rows="5" placeholder="Please discribe your project."></textarea>
+                    </div>
+                    <div class="form-flield-container">
+                        <label>Role</label>
+                        <select>
+                            <option>Architect</option>
+                            <option>Engineer</option>
+                            <option>Developer</option>
+                        </select>
+                    </div>
+                    <div class="form-flield-container">
+                        <label>Status</label>
+                        <select>
+                            <option>Pending</option>
+                            <option>Active</option>
+                            <option>Finished</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button type="button">Cancel</button>
+                    <button type="submit">Accept</button>
+                </div>
+                
+            </form>
+        </dialog>
+
+        <!-- Projects Page (wird standardmäßig versteckt) -->
+        <div class="page" id="projects-page">
+            <header>
+                <h2>Projects</h2>
+                <div>
+                    <button id="new-project-btn">
+                        <span class="material-symbols-outlined">add</span>
+                        New Project
+                    </button>
+                </div>
+            </header>
+            <div id="project-list">
+                <div class="project-card">
+                    <div class="card-header">
+                        <p class="project-initials">HC</p>
+                        <div>
+                            <h5>Project Name</h5>
+                            <p>Project Description Goes Here</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-property">
+                            <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+                                <div>
+                                    <p style="color: #969696; font-size: 12px;">Status</p>
+                                    <p><strong>Active</strong></p>
+                                </div>
+                                <div>
+                                    <p style="color: #969696; font-size: 12px;">Cost</p>
+                                    <p><strong>€ 1.000.000.000</strong></p>
+                                </div>
+                                <div>
+                                    <p style="color: #969696; font-size: 12px;">Role</p>
+                                    <p><strong>Engineer</strong></p>
+                                </div>
+                                <div>
+                                    <p style="color: #969696; font-size: 12px;">Finish Date</p>
+                                    <p><strong>2030-05-01</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hospital Center (soll sichtbar sein) -->
+        <div class="page" id="project-details">
+            <header>
+                <div style="margin: 10px;">
+                    <h2>Hospital Center</h2>
+                    <p class="subtitle">Community Hospital located at downtown</p>
+                </div>
+            </header>
+
+            <div class="main-page-content" style="flex-grow: 1;">
+                
+                <div class="dashboard-card" style="padding: 20px; background-color: var(--background-100); border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px;">
+
+                    <!-- Kopfzeile mit HC-Element & Edit-Button -->
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <!-- Rundes "HC" Element -->
+                        <div style="width: 50px; height: 50px; background-color: #ca8134; color: white; font-size: 22px; font-weight: bold; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                            HC
+                        </div>
+                
+                        <!-- Edit-Button -->
+                        <button class="btn-secondary" style="margin-left: auto; display: flex; align-items: center; justify-content: center;">Edit</button>
+
+                    </div>
+                
+                    <!-- Titel & Beschreibung -->
+                    <div style="margin-top: 10px;">
+                        <h4 style="margin: 0;">Hospital Center</h4>
+                        <p style="color: #666; font-size: 14px; margin: 5px 0 15px;">Community hospital located at downtown</p>
+                    </div>
+                
+                    <!-- Projekt-Details -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+                        <div>
+                            <p style="color: #969696; font-size: 12px;">Status</p>
+                            <p><strong>Active</strong></p>
+                        </div>
+                        <div>
+                            <p style="color: #969696; font-size: 12px;">Cost</p>
+                            <p><strong>€ 1.000.000.000</strong></p>
+                        </div>
+                        <div>
+                            <p style="color: #969696; font-size: 12px;">Role</p>
+                            <p><strong>Engineer</strong></p>
+                        </div>
+                        <div>
+                            <p style="color: #969696; font-size: 12px;">Finish Date</p>
+                            <p><strong>2030-05-01</strong></p>
+                        </div>
+                    </div>
+                
+                    <!-- progressbar static -->
+                    <div style="margin-top: 15px;">
+                        <p style="font-size: 12px; color: #666; margin-bottom: 5px;">Project Progress</p>
+                        <div style="background-color: #404040; border-radius: 10px; width: 100%; height: 20px; overflow: hidden; position: relative;">
+                            <div style="width: 80%; background-color: green; height: 100%; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                80%
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+                
+                <div id="viewer-container"></div>
+                
+            
+            
+                <div class="dashboard-card" style="padding: 20px; background-color: var(--background-100); border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px;"> 
+                <div style="padding: 20px 30px; display: flex; align-items: center;">
+                    <h4>To-Do</h4>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-symbols-outlined" style="margin: 5px;">search</span>
+                        <input style="background-color: var(--background-300); width: 200px; height: 30px;border-radius: 10px; color: white;" type="text" placeholder="Search To-Do"></input>
+                    </div>
+                    <span class="material-symbols-outlined" style="margin: 5px;"">add</span>
+                </div>
+
+                <div style="display: flex; flex-direction: column;">
+                    <div class="todo-item">
+                        <div style="display: flex; justify-content: space-between;">
+                            <div style="display: flex; column-gap: 15px;">
+                                <span class="material-symbols-outlined" style="width: 50px; height: 50px; background-color: var(--background-300); color: white; font-size: 22px; font-weight: bold; display: flex; align-items: center; justify-content: center; border-radius: 50%;">design_services</span>
+                                <p>Create and solve issues, even when it takes longer.</p>
+                            </div>
+                            <p style="text-wrap: nowrap; margin-left: 10px;">Fr,20 sep</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <script src="./index.js"></script>
+    
+</body>
+</html>

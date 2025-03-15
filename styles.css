@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+:root {
+    --primary: #029AE0;
+    --primary-100: #073044;
+    --primary-200: #415A66;
+    --primary-300: #017CB3;
+    --primary-400: #50B6E6;
+    --background: #202124;
+    --background-100: #26282b;
+    --background-200: #3f3c3f;
+    --background-300: #515151;
+    --font-small: 10px;
+    --font-base: 14px;
+    --font-lg: 16px;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100vh;
+    background-color: var(--background);
+    color: white;
+    overflow: hidden;
+}
+
+/* modal */
+dialog {
+    background-color: transparent;
+    border: none;
+    margin: auto;
+}
+
+form {
+    width: 450px;
+    border-radius: 10px;
+    background-color: var(--background-200);
+    color: white;
+}
+
+form h2 {
+    padding: 20px;
+    border-bottom: 2px solid var(--background-200);
+}
+
+form .input-list {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    row-gap: 25px;
+}
+
+form .form-field-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Sidebar */
+#sidebar {
+    background-color: var(--background-100);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+
+/* Navigation */
+#nav-buttons li {
+    list-style: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: var(--font-base);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#nav-buttons li:hover {
+    background-color: var(--primary);
+}
+
+/* Icons */
+.material-symbols-outlined {
+    font-size: 20px;
+}
+
+/* Project List */
+.project-card {
+    background-color: var(--background-200);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    outline: 2px solid var(--primary);
+}
+
+.card-header {
+    display: flex;
+    padding: 15px;
+    align-items: center;
+    border-bottom: 2px solid var(--background-300);
+}
+
+.project-initials {
+    background-color: #ca8134;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+/* Dashboard */
+.dashboard-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dashboard-card {
+    display: grid;
+    background-color: var(--background-100);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#project-details > .main-page-content {
+    display: grid;
+    padding: 20px 40px;
+    gap: 30px;
+    grid-template-columns: 475px 1fr;
+    height: 100%;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    outline: 2px solid var(--background-300);
+    width: 100px;
+    text-align: center;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+    outline: none;
+}
+
+.todo-item {
+    padding: 20px;
+    background-color: var(--background-200);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.todo-item:hover {
+    outline: var(--primary);
+}
+
+h5 {
+    font-size: var(--font-lg);
+}
+
+button {
+    padding: 8px 15px;
+    cursor: pointer;
+    height: 40px;
+    font-size: 14px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+button:hover {
+    background-color: var(--primary-300);
+}
+
+
+/* Viewer-Container */
+#viewer-container {
+    background-color: var(--background-100);
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    flex-grow: 1; /* Nimmt den verfügbaren Platz ein */
+    display: flex;
+    flex-direction: column;
+    overflow: auto; /* Falls Inhalte größer sind, wird gescrollt */
+}
