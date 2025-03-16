@@ -27,48 +27,67 @@
 
     <main id="content">
         <dialog id="new-project-modal">
-            <form>
+            <form id="new-project-form">
                 <h2>New Project</h2>
                 <div class="input-list">
                     <div class="form-field-container">
-                        <span class="material-symbols-outlined">home</span>
-                        <label placeholder="Project Name">Name</label>
-                        <input type="text">
+                        <span class="material-symbols-outlined" style="margin: 5px">home
+                            <label for="project-name">Name</label>
+                        </span>
+                        <div class="input-wrapper">
+                            <input type="text" id="project-name" placeholder="Enter project name">
+                        </div>
                     </div>
-                    <div class="form-flield-container">
-                        <span class="material-symbols-outlined">menu</span>
-                        <label>Discription</label>
-                        <textarea cols="30" rows="5" placeholder="Please discribe your project."></textarea>
-                    </div>
-                    <div class="form-flield-container">
-                        <span class="material-symbols-outlined">patient_list</span>
-                        <label>Role</label>
-                        <select>
-                            <option>Architect</option>
-                            <option>Engineer</option>
-                            <option>Developer</option>
-                        </select>
-                    </div>
-                    <div class="form-flield-container">
-                        <span class="material-symbols-outlined">check_circle</span>
-                        <label>Status</label>
-                        <select>
-                            <option>Pending</option>
-                            <option>Active</option>
-                            <option>Finished</option>
-                        </select>
-                    </div>
+        
                     <div class="form-field-container">
-                        <span class="material-symbols-outlined">calendar_today</span>
-                        <label for="date-input">Datum</label>
-                        <input type="date" id="date-input" name="date">
-                    </div>                    
+                        <span class="material-symbols-outlined" style="margin: 5px">menu
+                            <label for="project-description">Description</label>
+                        </span>
+                        <div class="input-wrapper">
+                            <textarea id="project-description" cols="30" rows="5" placeholder="Describe your project"></textarea>
+                        </div>
+                    </div>
+        
+                    <div class="form-field-container">
+                        <span class="material-symbols-outlined" style="margin: 5px">patient_list
+                            <label for="project-role">Role</label>
+                        </span>
+                        <div class="input-wrapper">
+                            <select id="project-role">
+                                <option>Architect</option>
+                                <option>Engineer</option>
+                                <option>Developer</option>
+                            </select>
+                        </div>
+                    </div>
+        
+                    <div class="form-field-container">
+                        <span class="material-symbols-outlined" style="margin: 5px">check_circle
+                            <label for="project-status">Status</label>
+                        </span>
+                        <div class="input-wrapper">
+                            <select id="project-status">
+                                <option>Pending</option>
+                                <option>Active</option>
+                                <option>Finished</option>
+                            </select>
+                        </div>
+                    </div>
+        
+                    <div class="form-field-container">
+                        <span class="material-symbols-outlined" style="margin: 5px">calendar_today
+                            <label for="date-input">Date</label>
+                        </span>
+                        <div class="input-wrapper">
+                            <input type="date" id="date-input" name="date">
+                        </div>
+                    </div>
                 </div>
+        
                 <div class="button-container">
-                    <button type="button">Cancel</button>
-                    <button type="submit">Accept</button>
+                    <button class="btn-secondary">Cancel</button>
+                    <button class="btn-primary">Accept</button>
                 </div>
-                
             </form>
         </dialog>
 

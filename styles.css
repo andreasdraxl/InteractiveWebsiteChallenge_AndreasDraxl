@@ -6,6 +6,7 @@
     --primary-200: #415A66;
     --primary-300: #017CB3;
     --primary-400: #50B6E6;
+    --primary-500: green;
     --background: #202124;
     --background-100: #26282b;
     --background-200: #3f3c3f;
@@ -71,7 +72,7 @@ dialog::backdrop {
 /* modal form */
 form {
     width: 450px;
-    height: 680px;
+    height: 720px;
     border-radius: 10px;
     background-color: var(--background-200);
     color: white;
@@ -85,18 +86,28 @@ form h2 {
 form .input-list {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 15px;
     row-gap: 25px;
 }
 
 form .form-field-container {
     display: flex;
     flex-direction: column;
+    font-size: var(--font-lg);
 }
 
 form .button-container {
     display: flex;
-    margin: 10px;
+    justify-content: flex-end; 
+}
+🛠 Er
+
+.btn-primary {
+    background-color: var(--primary-500);
+}
+
+.btn-secondary {
+    background-color: var(--primary-500);
 }
 
 input, textarea, select {
@@ -170,7 +181,7 @@ header {
     display: grid;
     padding: 20px 40px;
     gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
     justify-content: center;
 }
 
@@ -289,6 +300,7 @@ button {
     cursor: pointer;
     height: 40px;
     font-size: 14px;
+    margin: 5px;
     background-color: var(--primary);
     color: white;
     border: none;
