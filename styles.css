@@ -10,9 +10,13 @@
     --background-100: #26282b;
     --background-200: #3f3c3f;
     --background-300: #515151;
-    --font-small: 10px;
+    --font-sx: 10px;
+    --font-sm: 12px;
     --font-base: 14px;
     --font-lg: 16px;
+    --font-xl: 18px;
+    --font-2xl: 20px;
+    --font-3xl: 22px;
 }
 
 * {
@@ -30,11 +34,20 @@ body {
     overflow: hidden;
 }
 
-.card-property {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+h2 {
+    font-size: var(--font-3xl);
+}
+
+h3 {
+    font-size: var(--font-2xl);
+}
+
+h4 {
+    font-size: var(--font-xl);
+}
+
+h5 {
+    font-size: var(--font-lg);
 }
 
 #projects-list {
@@ -135,7 +148,28 @@ input:focus, textarea:focus, select:focus {
     font-size: 20px;
 }
 
-/* Project List */
+/* Project List plus project card */
+
+/* simple card */
+
+#content {
+
+}
+
+header {
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-property {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .project-card {
     background-color: var(--background-200);
     border-radius: 8px;
@@ -148,9 +182,20 @@ input:focus, textarea:focus, select:focus {
 
 .card-header {
     display: flex;
-    padding: 15px;
+    column-gap: 20px;
+    padding: 15px 20px;
     align-items: center;
+    justify-content: start;
     border-bottom: 2px solid var(--background-300);
+    height: 60px;
+}
+
+.card-content {
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: start;
 }
 
 .project-initials {
