@@ -72,7 +72,7 @@ dialog::backdrop {
 /* modal form */
 form {
     width: 450px;
-    height: 720px;
+    height: 680px;
     border-radius: 10px;
     background-color: var(--background-200);
     color: white;
