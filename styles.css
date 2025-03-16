@@ -152,9 +152,6 @@ input:focus, textarea:focus, select:focus {
 
 /* simple card */
 
-#content {
-
-}
 
 header {
     padding: 30px 40px;
@@ -169,17 +166,42 @@ header {
     justify-content: space-between;
     width: 100%;
 }
+#project-list {
+    display: grid;
+    padding: 20px 40px;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    justify-content: center;
+}
 
+/* Anpassung der Project Cards */
 .project-card {
     background-color: var(--background-200);
     border-radius: 8px;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
 }
 
 .project-card:hover {
     outline: 2px solid var(--primary);
+    transform: scale(1.02);
 }
 
+.card-header {
+    display: flex;
+    column-gap: 20px;
+    padding: 15px 20px;
+    align-items: center;
+    justify-content: start;
+    border-bottom: 2px solid var(--background-300);
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
 .card-header {
     display: flex;
     column-gap: 20px;
