@@ -30,6 +30,20 @@ body {
     overflow: hidden;
 }
 
+.card-property {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#projects-list {
+    display: grid;
+    padding: 20px 40px;
+    gap:30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
 /* modal */
 dialog {
     background-color: transparent;
@@ -37,8 +51,14 @@ dialog {
     margin: auto;
 }
 
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+}
+/* modal form */
 form {
     width: 450px;
+    height: 680px;
     border-radius: 10px;
     background-color: var(--background-200);
     color: white;
@@ -46,7 +66,7 @@ form {
 
 form h2 {
     padding: 20px;
-    border-bottom: 2px solid var(--background-200);
+    border-bottom: 2px solid var(--background-300);
 }
 
 form .input-list {
@@ -59,6 +79,24 @@ form .input-list {
 form .form-field-container {
     display: flex;
     flex-direction: column;
+}
+
+form .button-container {
+    display: flex;
+    margin: 10px;
+}
+
+input, textarea, select {
+    color: white;
+    background-color: var(--background-300);
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: var(--font-base);
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: 2px solid var(--primary);
 }
 
 .page {
