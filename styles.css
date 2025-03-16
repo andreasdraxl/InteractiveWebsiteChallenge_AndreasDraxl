@@ -96,24 +96,46 @@ form .form-field-container {
     font-size: var(--font-lg);
 }
 
-form .button-container {
+.button-container {
     display: flex;
     justify-content: flex-end; 
-}
-🛠 Er
-
-.btn-primary {
-    background-color: var(--primary-500);
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .btn-secondary {
-    background-color: var(--primary-500);
+    background-color: transparent;
+    border: 2px solid var(--background-300);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
 }
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+}
+
+.btn-primary {
+    background-color: var(--primary-500);
+    border: none;
+    color: white;
+    padding: 15px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #228B22; /* Etwas dunkleres Grün beim Hover */
+}
+
 
 input, textarea, select {
     color: white;
     background-color: var(--background-300);
-    padding: 15px;
+    padding: 10px;
     border-radius: 8px;
     border: none;
     font-size: var(--font-base);
