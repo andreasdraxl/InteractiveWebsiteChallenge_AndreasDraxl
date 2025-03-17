@@ -170,6 +170,7 @@ input:focus, textarea:focus, select:focus {
     cursor: pointer;
     display: flex;
     align-items: center;
+    margin-top: 10px;
     gap: 10px;
     background-color: transparent;
     border-radius: 50px;
