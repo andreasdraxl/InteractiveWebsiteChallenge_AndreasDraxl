@@ -160,21 +160,35 @@ input:focus, textarea:focus, select:focus {
     row-gap: 40px;
 }
 
-/* Navigation */
-#nav-buttons li {
+#nav-buttons {
     list-style: none;
+    padding: 0;
+}
+
+#nav-buttons li {
     padding: 10px;
-    border-radius: 10px;
-    font-size: var(--font-base);
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 10px;
+    background-color: transparent;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
 }
 
 #nav-buttons li:hover {
     background-color: var(--primary);
 }
+
+#nav-buttons li a {
+    text-decoration: none;
+    color: inherit; /* Erbt die Textfarbe */
+    display: flex;
+    align-items: center;
+    width: 100%; /* Macht das ganze Element klickbar */
+    padding: 10px;
+}
+
 
 /* Icons */
 .material-symbols-outlined {

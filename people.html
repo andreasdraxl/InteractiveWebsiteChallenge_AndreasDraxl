@@ -11,41 +11,42 @@
     <aside id="sidebar">
         <img src="./img/company-logo.svg" alt="Company Logo">
         <ul id="nav-buttons">
-            <li><a href="index.html"><span class="material-symbols-outlined">account_balance</span>Projects</a></li>
+            <li><a href="index.html"><span class="material-symbols-outlined">account_balance</span>Users</a></li>
             <li><a href="people.html"><span class="material-symbols-outlined">groups</span>People</a></li>
         </ul>
+        
     </aside>
 
     <main id="content">
-        <dialog id="new-project-modal">
-            <form id="new-project-form">
-                <h2>New Project</h2>
+        <dialog id="new-User-modal">
+            <form id="new-User-form">
+                <h2>New User</h2>
                 <div class="input-list">
                     <div class="form-field-container">
                         <div class="icon-label">
                             <span class="material-symbols-outlined">home</span>
-                            <label for="project-name">Name</label>
+                            <label for="User-name">Name</label>
                         </div>
                         <div class="input-wrapper">
-                            <input name="name" type="text" id="project-name" placeholder="Enter project name">
+                            <input name="name" type="text" id="User-name" placeholder="Enter User name">
                         </div>
                     </div>
                     <div class="form-field-container">
                         <div class="icon-label">
                             <span class="material-symbols-outlined">menu</span>
-                            <label for="project-description">Description</label>
+                            <label for="User-description">Description</label>
                         </div>
                         <div class="input-wrapper">
-                            <textarea name="description" id="project-description" cols="30" rows="5" placeholder="Describe your project"></textarea>
+                            <textarea name="description" id="User-description" cols="30" rows="5" placeholder="Describe your User"></textarea>
                         </div>
                     </div>
                     <div class="form-field-container">
                         <div class="icon-label">
                             <span class="material-symbols-outlined">patient_list</span>
-                            <label for="project-role">Role</label>
+                            <label for="User-role">Role</label>
                         </div>
                         <div class="input-wrapper">
-                            <select name="role" id="project-role">
+                            <select name="role" id="User-role">
                                 <option>Architect</option>
                                 <option>Engineer</option>
                                 <option>Developer</option>
@@ -55,20 +56,20 @@
                     <div class="form-field-container">
                         <div class="icon-label">
                             <span class="material-symbols-outlined">check_circle</span>
-                            <label for="project-status">Status</label>
+                            <label for="User-status">Expierence</label>
                         </div>
                         <div class="input-wrapper">
-                            <select name="status" id="project-status">
-                                <option>Pending</option>
-                                <option>Active</option>
-                                <option>Finished</option>
+                            <select name="status" id="User-status">
+                                <option>Rookie</option>
+                                <option>Advancer</option>
+                                <option>Master</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-field-container">
                         <div class="icon-label">
                             <span class="material-symbols-outlined">calendar_today</span>
-                            <label for="date-input">Date</label>
+                            <label for="date-input">Carrier Start</label>
                         </div>
                         <div class="input-wrapper">
                             <input type="date" id="date-input" name="date">
@@ -83,22 +84,22 @@
         </dialog>
         
 
-        <div class="page" id="projects-page">
+        <div class="page" id="Users-page">
             <header>
-                <h2>Projects</h2>
+                <h2>Users</h2>
                 <div>
-                    <button id="new-project-btn">
-                        <span class="material-symbols-outlined">add</span>New Project
+                    <button id="new-User-btn">
+                        <span class="material-symbols-outlined">add</span>New User
                     </button>
                 </div>
             </header>
-            <div id="project-list">
-                <div class="project-card">
+            <div id="User-list">
+                <div class="User-card">
                     <div class="card-header">
-                        <p class="project-initials" style="background-color: #ca8134; padding: 10px; border-radius: 8px; aspect-ratio: 1">HC</p>
+                        <p class="User-initials" style="background-color: #ca8134; padding: 10px; border-radius: 8px; aspect-ratio: 1">HC</p>
                         <div>
-                            <h5>Project Name</h5>
-                            <p>Project Description Goes Here</p>
+                            <h5>User Name</h5>
+                            <p>User Description Goes Here</p>
                         </div>
                     </div>
                     <div class="card-content">
@@ -115,7 +116,7 @@
             </div>
         </div>
 
-        <div class="page" id="project-details">
+        <div class="page" id="User-details">
             <header>
                 <div style="margin: 10px;">
                     <h2>Hospital Center</h2>
@@ -149,6 +150,6 @@
             </div>
         </div>
     </main>
-    <script src="./index.js"></script>
+    <script src="./people.js"></script>
 </body>
 </html>
