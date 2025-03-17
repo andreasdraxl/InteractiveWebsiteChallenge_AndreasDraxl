@@ -213,6 +213,7 @@ header {
     justify-content: space-between;
     width: 100%;
 }
+
 #project-list {
     display: grid;
     padding: 20px 40px;
@@ -361,4 +362,28 @@ button:hover {
     display: flex;
     flex-direction: column;
     overflow: auto; /* Falls Inhalte größer sind, wird gescrollt */
+}
+
+/* user card */
+
+/* Anpassung der User Cards */
+
+#user-list {
+    display: grid;
+    padding: 20px 40px;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+    justify-content: center;
+}
+
+.user-card {
+    background-color: var(--background-200);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.user-card:hover {
+    outline: 2px solid var(--primary);
+    transform: scale(1.02);
 }
