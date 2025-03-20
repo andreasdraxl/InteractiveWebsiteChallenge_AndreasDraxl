@@ -35,6 +35,9 @@ document.querySelectorAll(".btn-secondary").forEach(btn => {
     btn.addEventListener("click", () => closeModal("new-project-modal"));
 });
 
+const projectsListUI = document.getElementById("projects-list") as HTMLElement
+const projectManager = new ProjectsManager(projectsListUI);
+
 // Formular-Submit verhindern und Daten loggen
 const projectForm = document.getElementById("new-project-form");
 if (projectForm && projectForm instanceof HTMLFormElement) {
@@ -47,13 +50,31 @@ if (projectForm && projectForm instanceof HTMLFormElement) {
             userRole: formData.get("role") as UserRole,
             status: formData.get("status") as ProjectStatus,
             finishDate: new Date(formData.get("date") as string || "")
-        };
-        const projectsListUI = document.getElementById("projects-list") as HTMLElement
-        const projectManager = new ProjectsManager(projectsListUI);
-        const project = projectManager.newProject(projectData);
-        projectForm.reset()
+        }
+        try {
+            const project = projectManager.newProject(projectData);
+            projectForm.reset()
+            closeModal("new-project-modal");
+        } catch (error) {
+            alert(error);
+        }
+        
         
     });
 } else {
-    console.warn("No new project form found. Check the ID!");
+    console.warn("No new project form found. Check the ID!")
+}
+
+const exportProjectsBTn = document.getElementById("export-projects-btn");
+if (exportProjectsBTn) {
+    exportProjectsBTn.addEventListener("click", () => {
+        projectManager.exportToJSON()
+    })
+}
+
+const importProjectsBTn = document.getElementById("import-projects-btn");
+if (importProjectsBTn) {
+    importProjectsBTn.addEventListener("click", () => {
+        projectManager.exportToJSON()
+    })
 }

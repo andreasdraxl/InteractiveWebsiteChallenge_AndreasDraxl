@@ -96,6 +96,19 @@ form .form-field-container {
     font-size: var(--font-lg);
 }
 
+/* Import und Export Icons Hover Effekt */
+#import-projects-btn,
+#export-projects-btn {
+    cursor: pointer;
+    transition: color 0.1s ease-in-out;
+}
+
+#import-projects-btn:hover,
+#export-projects-btn:hover {
+    color: var(--primary);
+}
+
+
 .button-container {
     display: flex;
     justify-content: flex-end; 
