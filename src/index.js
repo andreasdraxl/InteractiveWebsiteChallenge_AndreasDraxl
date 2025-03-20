@@ -1,3 +1,5 @@
+import { Project } from './class/project.js';
+
 // Funktion zum Öffnen des Modals
 function showModal(id) {
     const modal = document.getElementById(id);
@@ -27,28 +29,28 @@ if (newProjectBtn) {
 }
 
 // "Cancel" Button - Schließt das Modal
-const cancelBtn = document.querySelector(".btn-secondary"); 
-if (cancelBtn) {
-    cancelBtn.addEventListener("click", () => closeModal("new-project-modal"));
-} else {
-    console.warn("No cancel button found.");
-}
+document.querySelectorAll(".btn-secondary").forEach(btn => {
+    btn.addEventListener("click", () => closeModal("new-project-modal"));
+});
 
 // Formular-Submit verhindern und Daten loggen
 const projectForm = document.getElementById("new-project-form");
 if (projectForm) {
     projectForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        const formData = new FormData(projectForm)
-        const project = {
+        const formData = new FormData(projectForm);
+        const projectData = {
             name: formData.get("name"),
-            discription: formData.get("discription"),
+            description: formData.get("description"),
             role: formData.get("role"),
             status: formData.get("status"),
             date: formData.get("date")
-        }
-        console.log(project);
-        closeModal("new-project-modal"); // Schließt das Modal nach dem Submit
+        };
+
+        const projectInstance = new Project(projectData);
+        console.log(projectInstance);
+
+        //closeModal("new-project-modal"); // Schließt das Modal nach dem Submit
     });
 } else {
     console.warn("No new project form found. Check the ID!");

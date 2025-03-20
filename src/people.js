@@ -42,7 +42,7 @@ if (userForm) {
         const formData = new FormData(userForm)
         const user = {
             name: formData.get("name"),
-            discription: formData.get("discription"),
+            description: formData.get("description"),
             role: formData.get("role"),
             status: formData.get("status"),
             date: formData.get("date")
