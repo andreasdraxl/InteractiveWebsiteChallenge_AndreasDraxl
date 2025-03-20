@@ -1,4 +1,4 @@
-import { Project } from './class/Project.ts';
+import { Project, IProject, ProjectStatus, UserRole } from './class/Project.ts';
 
 // Funktion zum Öffnen des Modals
 function showModal(id: string) {
@@ -39,12 +39,12 @@ if (projectForm && projectForm instanceof HTMLFormElement) {
     projectForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const formData = new FormData(projectForm);
-        const projectData = {
+        const projectData: IProject = {
             name: formData.get("name") as string || "",
             description: formData.get("description") as string || "",
-            role: formData.get("role") as string || "",
-            status: formData.get("status") as string || "",
-            date: formData.get("date") as string || ""
+            userRole: formData.get("role") as UserRole,
+            status: formData.get("status") as ProjectStatus,
+            finishDate: new Date(formData.get("date") as string || "")
         };
 
         const projectInstance = new Project(projectData);

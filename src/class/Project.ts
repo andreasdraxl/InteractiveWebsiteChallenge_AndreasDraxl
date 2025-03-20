@@ -1,15 +1,26 @@
-export class Project {
-    name: string;
-    description: string;
-    status: string;
-    userRole: string;
-    finishDate: string;
+export type ProjectStatus = "pending" | "inProgress" | "finished" 
+export type UserRole = "architect" | "developer" | "engineer"
 
-    constructor(data: { name: string; description: string; status: string; role: string; date: string }) {
-        this.name = data.name;
-        this.description = data.description;
-        this.status = data.status;
-        this.userRole = data.role;
-        this.finishDate = data.date;
+export interface IProject {
+    name: string
+    description: string
+    status: ProjectStatus
+    userRole: UserRole
+    finishDate: Date
+}
+
+export class Project implements IProject{
+    name: string
+    description: string
+    status: "pending" | "inProgress" | "finished"
+    userRole: "architect" | "developer" | "engineer"
+    finishDate: Date;
+
+    constructor(data: IProject) {
+        this.name = data.name
+        this.description = data.description
+        this.status = data.status
+        this.userRole = data.userRole
+        this.finishDate = data.finishDate
     }
 }
