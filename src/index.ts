@@ -1,4 +1,5 @@
-import { Project, IProject, ProjectStatus, UserRole } from './class/Project.ts';
+import { IProject, ProjectStatus, UserRole } from './class/Project';
+import { ProjectsManager } from './class/ProjectsManager';
 
 // Funktion zum Öffnen des Modals
 function showModal(id: string) {
@@ -10,8 +11,9 @@ function showModal(id: string) {
     }
 }
 
+
 // Funktion zum Schließen des Modals
-function closeModal(id) {
+function closeModal(id: string) {
     const modal = document.getElementById(id);
     if (modal && modal instanceof HTMLDialogElement) {
         modal.close();
@@ -46,11 +48,11 @@ if (projectForm && projectForm instanceof HTMLFormElement) {
             status: formData.get("status") as ProjectStatus,
             finishDate: new Date(formData.get("date") as string || "")
         };
-
-        const projectInstance = new Project(projectData);
-        console.log(projectInstance);
-
-        //closeModal("new-project-modal"); // Schließt das Modal nach dem Submit
+        const projectsListUI = document.getElementById("projects-list") as HTMLElement
+        const projectManager = new ProjectsManager(projectsListUI);
+        const project = projectManager.newProject(projectData);
+        projectForm.reset()
+        
     });
 } else {
     console.warn("No new project form found. Check the ID!");
