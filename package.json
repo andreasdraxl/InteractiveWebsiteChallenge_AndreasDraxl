@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "vite"
   },
-
-
   "devDependencies": {
     "vite": "^6.2.2"
   },
   "keywords": [],
   "autor": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^11.1.0"
+  }
 }
