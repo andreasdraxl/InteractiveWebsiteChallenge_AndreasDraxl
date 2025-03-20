@@ -1,9 +1,9 @@
-import { Project } from './class/project.js';
+import { Project } from './class/Project.ts';
 
 // Funktion zum Öffnen des Modals
-function showModal(id) {
+function showModal(id: string) {
     const modal = document.getElementById(id);
-    if (modal) {
+    if (modal && modal instanceof HTMLDialogElement) {
         modal.showModal();
     } else {
         console.warn("The provided modal wasn't found. ID: ", id);
@@ -13,7 +13,7 @@ function showModal(id) {
 // Funktion zum Schließen des Modals
 function closeModal(id) {
     const modal = document.getElementById(id);
-    if (modal) {
+    if (modal && modal instanceof HTMLDialogElement) {
         modal.close();
     } else {
         console.warn("The provided modal wasn't found. ID: ", id);
@@ -35,16 +35,16 @@ document.querySelectorAll(".btn-secondary").forEach(btn => {
 
 // Formular-Submit verhindern und Daten loggen
 const projectForm = document.getElementById("new-project-form");
-if (projectForm) {
+if (projectForm && projectForm instanceof HTMLFormElement) {
     projectForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const formData = new FormData(projectForm);
         const projectData = {
-            name: formData.get("name"),
-            description: formData.get("description"),
-            role: formData.get("role"),
-            status: formData.get("status"),
-            date: formData.get("date")
+            name: formData.get("name") as string || "",
+            description: formData.get("description") as string || "",
+            role: formData.get("role") as string || "",
+            status: formData.get("status") as string || "",
+            date: formData.get("date") as string || ""
         };
 
         const projectInstance = new Project(projectData);

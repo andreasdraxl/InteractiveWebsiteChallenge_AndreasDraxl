@@ -1,7 +1,7 @@
 // Funktion zum Öffnen des Modals
 function showModal(id) {
     const modal = document.getElementById(id);
-    if (modal) {
+    if (modal && modal instanceof HTMLDialogElement) {
         modal.showModal();
     } else {
         console.warn("The provided modal wasn't found. ID: ", id);
@@ -11,7 +11,7 @@ function showModal(id) {
 // Funktion zum Schließen des Modals
 function closeModal(id) {
     const modal = document.getElementById(id);
-    if (modal) {
+    if (modal && modal instanceof HTMLDialogElement) {
         modal.close();
     } else {
         console.warn("The provided modal wasn't found. ID: ", id);
@@ -36,7 +36,7 @@ if (cancelBtn) {
 
 // Formular-Submit verhindern und Daten loggen
 const userForm = document.getElementById("new-user-form");
-if (userForm) {
+if (userForm && userForm instanceof HTMLFormElement) {
     userForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const formData = new FormData(userForm)
