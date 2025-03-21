@@ -75,6 +75,6 @@ if (exportProjectsBTn) {
 const importProjectsBTn = document.getElementById("import-projects-btn");
 if (importProjectsBTn) {
     importProjectsBTn.addEventListener("click", () => {
-        projectManager.exportToJSON()
+        projectManager.importFromJSON()
     })
 }
