@@ -173,10 +173,6 @@ input:focus, textarea:focus, select:focus {
     row-gap: 40px;
 }
 
-#nav-buttons {
-    list-style: none;
-    padding: 0;
-}
 
 #nav-buttons li {
     padding: 10px;
