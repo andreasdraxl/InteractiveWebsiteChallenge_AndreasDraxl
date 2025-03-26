@@ -1,5 +1,7 @@
 import { IProject,Project } from "./Project"
 
+
+
 export class ProjectsManager {
     list: Project[] = []
     ui: HTMLElement
@@ -9,33 +11,41 @@ export class ProjectsManager {
     }
 
     newProject(data: IProject) {
-        const projectNames = this.list.map((project) => {
-            return project.name
-        })
-        const nameInUse = projectNames.includes(data.name)
-        if (nameInUse) {
-            throw new Error('A Project with the name "${data.name}" already exists')
-        }
-
-        const project = new Project(data)
+        const project = new Project(data);
+    
         project.ui.addEventListener("click", () => {
-            const projectsPage = document.getElementById("projects-page")
-            const detailsPage = document.getElementById("project-details")
-            if (!projectsPage || !detailsPage) { return }
-            projectsPage.style.display = "none"
-            detailsPage.style.display = "flex"
-            this.setDetailsPage(project)
-        })
-        this.ui.append(project.ui)
-        this.list.push(project)
-        return project
+            const projectsPage = document.getElementById("projects-page");
+            const detailsPage = document.getElementById("project-details");
+            if (!projectsPage || !detailsPage) return;
+    
+            projectsPage.style.display = "none";
+            detailsPage.style.display = "flex";
+            this.setDetailsPage(project);
+        });
+    
+        this.ui.append(project.ui);
+        this.list.push(project);
     }
-
+    
     private setDetailsPage(project: Project) {
-        const detailsPage = document.getElementById("project-details")
-        if (!detailsPage) { return }
-        const name = detailsPage.querySelector("[data-project-info='name']")
-        if (name) { name.textContent = project.name }
+        const detailsPage = document.getElementById("project-details");
+        if (!detailsPage) return;
+    
+        const name = detailsPage.querySelector("[data-project-info='name']");
+        if (name) name.textContent = project.name;
+    }
+    
+
+    createDefaultProject() {
+        const defaultProject: IProject = {
+            name: "Default Project",
+            description: "This is a default project description.",
+            status: "pending",
+            userRole: "developer",
+            finishDate: new Date(),
+        };
+
+        this.newProject(defaultProject);
     }
 
     getProject(id: string) {

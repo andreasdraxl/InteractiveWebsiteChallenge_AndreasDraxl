@@ -11,6 +11,25 @@ function showModal(id: string) {
     }
 }
 
+const projectsListUI = document.getElementById("projects-list") as HTMLElement;
+const projectManager = new ProjectsManager(projectsListUI);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const newProjectBtn = document.getElementById("new-project-btn");
+    if (newProjectBtn) {
+        newProjectBtn.addEventListener("click", () => {
+            projectManager.createDefaultProject();  // Erstellt das Standardprojekt nur nach Klick
+        });
+    }
+
+    // Event-Listener für den "Edit"-Button in der Projekt-Detailseite
+    const editProjectBtn = document.querySelector(".btn-secondary");
+    if (editProjectBtn) {
+        editProjectBtn.addEventListener("click", () => {
+            showModal("project-card-modal");  // Öffne das Bearbeitungsmodal
+        });
+    }
+});
 
 // Funktion zum Schließen des Modals
 function closeModal(id: string) {
@@ -22,23 +41,7 @@ function closeModal(id: string) {
     }
 }
 
-// "New Project" Button - Öffnet das Modal
-const newProjectBtn = document.getElementById("new-project-btn");
-if (newProjectBtn) {
-    newProjectBtn.addEventListener("click", () => showModal("new-project-modal"));
-} else {
-    console.warn("No new project button found.");
-}
-
-// "Cancel" Button - Schließt das Modal
-document.querySelectorAll(".btn-secondary").forEach(btn => {
-    btn.addEventListener("click", () => closeModal("new-project-modal"));
-});
-
-const projectsListUI = document.getElementById("projects-list") as HTMLElement
-const projectManager = new ProjectsManager(projectsListUI);
-
-// Formular-Submit verhindern und Daten loggen
+// Formular-Submit verhindern und Daten speichern
 const projectForm = document.getElementById("new-project-form");
 if (projectForm && projectForm instanceof HTMLFormElement) {
     projectForm.addEventListener("submit", (e) => {
@@ -50,31 +53,29 @@ if (projectForm && projectForm instanceof HTMLFormElement) {
             userRole: formData.get("role") as UserRole,
             status: formData.get("status") as ProjectStatus,
             finishDate: new Date(formData.get("date") as string || "")
-        }
+        };
         try {
-            const project = projectManager.newProject(projectData);
-            projectForm.reset()
+            projectManager.newProject(projectData);
+            projectForm.reset();
             closeModal("new-project-modal");
         } catch (error) {
             alert(error);
         }
-        
-        
     });
 } else {
-    console.warn("No new project form found. Check the ID!")
+    console.warn("No new project form found. Check the ID!");
 }
 
-const exportProjectsBTn = document.getElementById("export-projects-btn");
-if (exportProjectsBTn) {
-    exportProjectsBTn.addEventListener("click", () => {
-        projectManager.exportToJSON()
-    })
+const exportProjectsBtn = document.getElementById("export-projects-btn");
+if (exportProjectsBtn) {
+    exportProjectsBtn.addEventListener("click", () => {
+        projectManager.exportToJSON();
+    });
 }
 
-const importProjectsBTn = document.getElementById("import-projects-btn");
-if (importProjectsBTn) {
-    importProjectsBTn.addEventListener("click", () => {
-        projectManager.importFromJSON()
-    })
+const importProjectsBtn = document.getElementById("import-projects-btn");
+if (importProjectsBtn) {
+    importProjectsBtn.addEventListener("click", () => {
+        projectManager.importFromJSON();
+    });
 }
