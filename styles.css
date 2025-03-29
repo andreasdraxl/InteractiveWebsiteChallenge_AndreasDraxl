@@ -223,13 +223,29 @@ header {
     justify-content: space-between;
     width: 100%;
 }
-
-#project-list {
+#projects-list {
     display: grid;
     padding: 20px 40px;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
-    justify-content: center;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    max-height: 80vh; /* Begrenzung der Höhe */
+    overflow-y: auto; /* Ermöglicht vertikales Scrollen */
+    scrollbar-width: thin; /* Für Firefox */
+    scrollbar-color: var(--primary) var(--background-200); /* Scrollbar-Styling für moderne Browser */
+}
+
+/* Scrollbar für WebKit (Chrome, Edge, Safari) */
+#projects-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#projects-list::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 4px;
+}
+
+#projects-list::-webkit-scrollbar-track {
+    background-color: var(--background-200);
 }
 
 /* Anpassung der Project Cards */
