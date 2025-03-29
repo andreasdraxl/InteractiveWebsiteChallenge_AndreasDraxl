@@ -45,17 +45,12 @@ export class Project implements IProject {
                 .join(""); 
         };
     
-        // colors
+        // Farben für die Initialen
         const colors = [
-            "#E57373", // Rot
-            "#F06292", // Pink
-            "#64B5F6", // Blau
-            "#81C784", // Grün
-            "#FFD54F", // Gelb
-            "#BA68C8"  // Lila
+            "#E57373", "#F06292", "#64B5F6", "#81C784", "#FFD54F", "#BA68C8"
         ];
     
-        // random choose colors
+        // Zufällige Farbe wählen
         const randomColor = colors[Math.floor(Math.random() * colors.length)];
     
         const initials = getInitials(this.name);
@@ -95,13 +90,45 @@ export class Project implements IProject {
                 </div>
             </div>
         `;
-    
-        // Event-Listener für den Edit-Button
-        const editButton = this.ui.querySelector(".edit-project-btn") as HTMLButtonElement;
-        if (editButton) {
-            editButton.addEventListener("click", () => {
-                alert(`Editing project: ${this.name}`);
-            });
+
+        // Klick-Event für die gesamte Karte
+        this.ui.addEventListener("click", () => {
+            this.activateEditButton();
+        });
+    }
+
+    activateEditButton() {
+        const editButton = document.querySelector(".edit-project-btn") as HTMLButtonElement;
+
+        if (!editButton) {
+            console.warn("Edit button not found!");
+            return;
         }
+
+        // Edit-Button aktivieren
+        editButton.style.display = "block";
+
+        // Klick-Event setzen
+        editButton.onclick = () => {
+            const nameInput = document.getElementById("project-name") as HTMLInputElement;
+            const descriptionInput = document.getElementById("project-description") as HTMLTextAreaElement;
+
+            if (nameInput && descriptionInput) {
+                nameInput.value = this.name;
+                descriptionInput.value = this.description;
+            }
+
+            showModal("new-project-modal");
+        };
+    }
+}
+
+// Funktion zum Öffnen des Modals (wird in index.ts auch benötigt)
+function showModal(id: string) {
+    const modal = document.getElementById(id);
+    if (modal && modal instanceof HTMLDialogElement) {
+        modal.showModal();
+    } else {
+        console.warn("The provided modal wasn't found. ID: ", id);
     }
 }

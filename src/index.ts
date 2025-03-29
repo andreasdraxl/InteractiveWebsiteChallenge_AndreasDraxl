@@ -18,17 +18,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const newProjectBtn = document.getElementById("new-project-btn");
     if (newProjectBtn) {
         newProjectBtn.addEventListener("click", () => {
-            projectManager.createDefaultProject();  // Erstellt das Standardprojekt nur nach Klick
+            projectManager.createDefaultProject(); // Erstellt ein Standardprojekt nur nach Klick
         });
     }
 
-    // Event-Listener für den "Edit"-Button in der Projekt-Detailseite
-    const editProjectBtn = document.querySelector(".btn-secondary");
-    if (editProjectBtn) {
-        editProjectBtn.addEventListener("click", () => {
-            showModal("project-card-modal");  // Öffne das Bearbeitungsmodal
-        });
-    }
+    // Event-Listener für alle "Edit"-Buttons in Projekten
+    document.addEventListener("click", (event) => {
+        const target = event.target as HTMLElement;
+
+        // Prüfen, ob ein "Edit"-Button geklickt wurde
+        if (target.classList.contains("edit-project-btn")) {
+            const projectCard = target.closest(".project-card"); // Finde die nächste Projektkarte
+            
+            if (projectCard) {
+                const projectName = projectCard.querySelector("h5")?.innerText || "";
+                const projectDescription = projectCard.querySelector("p")?.innerText || "";
+
+                // Setze die Werte ins Formular
+                const nameInput = document.getElementById("project-name") as HTMLInputElement;
+                const descriptionInput = document.getElementById("project-description") as HTMLTextAreaElement;
+
+                if (nameInput && descriptionInput) {
+                    nameInput.value = projectName;
+                    descriptionInput.value = projectDescription;
+                }
+
+                showModal("new-project-modal"); // Öffnet das Modal zum Bearbeiten
+            } else {
+                console.warn("No project card found for editing.");
+            }
+        }
+    });
 });
 
 // Funktion zum Schließen des Modals

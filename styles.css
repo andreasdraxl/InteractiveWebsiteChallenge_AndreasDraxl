@@ -338,6 +338,14 @@ header {
     text-align: center;
 }
 
+.edit-project-btn {
+    background-color: transparent;
+    outline: 2px solid var(--background-300);
+    width: 100px;
+    text-align: center;
+}
+
+
 .btn-secondary:hover {
     background-color: var(--primary);
     outline: none;
