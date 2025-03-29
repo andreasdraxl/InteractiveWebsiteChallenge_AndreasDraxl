@@ -36,13 +36,23 @@ export class Project implements IProject {
 
     setUI() {
         if (this.ui) return;
+    
         
+        const getInitials = (name: string): string => {
+            return name
+                .split(" ") 
+                .map(word => word.charAt(0).toUpperCase()) 
+                .join(""); 
+        };
+    
+        const initials = getInitials(this.name);
+    
         this.ui = document.createElement("div");
         this.ui.className = "project-card";
         this.ui.innerHTML = `
             <div class="card-header">
                 <p class="project-initials" style="background-color: rgb(130, 117, 102); padding: 10px; border-radius: 8px; aspect-ratio: 1">
-                    ${this.name.charAt(0).toUpperCase()}
+                    ${initials}
                 </p>
                 <div>
                     <h5>${this.name}</h5>
@@ -72,7 +82,7 @@ export class Project implements IProject {
                 </div>
             </div>
         `;
-
+    
         // Event-Listener für den Edit-Button
         const editButton = this.ui.querySelector(".edit-project-btn") as HTMLButtonElement;
         if (editButton) {
