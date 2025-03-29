@@ -34,10 +34,10 @@ export class Project implements IProject {
         this.setUI();
     }
 
-    setUI() {
+    setUI() { 
         if (this.ui) return;
     
-        
+        // Funktion zur Generierung der Initialen
         const getInitials = (name: string): string => {
             return name
                 .split(" ") 
@@ -45,13 +45,26 @@ export class Project implements IProject {
                 .join(""); 
         };
     
+        // colors
+        const colors = [
+            "#E57373", // Rot
+            "#F06292", // Pink
+            "#64B5F6", // Blau
+            "#81C784", // Grün
+            "#FFD54F", // Gelb
+            "#BA68C8"  // Lila
+        ];
+    
+        // random choose colors
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    
         const initials = getInitials(this.name);
     
         this.ui = document.createElement("div");
         this.ui.className = "project-card";
         this.ui.innerHTML = `
             <div class="card-header">
-                <p class="project-initials" style="background-color: rgb(130, 117, 102); padding: 10px; border-radius: 8px; aspect-ratio: 1">
+                <p class="project-initials" style="background-color: ${randomColor}; padding: 10px; border-radius: 8px; aspect-ratio: 1; color: white; font-weight: bold; display: flex; align-items: center; justify-content: center;">
                     ${initials}
                 </p>
                 <div>
@@ -88,7 +101,6 @@ export class Project implements IProject {
         if (editButton) {
             editButton.addEventListener("click", () => {
                 alert(`Editing project: ${this.name}`);
-                // Hier könnte später eine Modal-Funktion zum Bearbeiten implementiert werden
             });
         }
     }
