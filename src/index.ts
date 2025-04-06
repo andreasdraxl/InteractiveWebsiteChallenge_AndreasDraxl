@@ -1,5 +1,7 @@
 import { IProject, ProjectStatus, UserRole } from './class/Project';
 import { ProjectsManager } from './class/ProjectsManager';
+import { initializeViewer } from './class/Viewer';
+
 
 // Funktion zum Öffnen des Modals
 function showModal(id: string) {
@@ -19,8 +21,34 @@ document.addEventListener("DOMContentLoaded", () => {
     if (newProjectBtn) {
         newProjectBtn.addEventListener("click", () => {
             projectManager.createDefaultProject(); // Erstellt ein Standardprojekt nur nach Klick
+
+            
         });
     }
+
+    /*
+document.addEventListener("DOMContentLoaded", () => {
+    const newProjectBtn = document.getElementById("new-project-btn");
+    if (newProjectBtn) {
+        newProjectBtn.addEventListener("click", () => {
+            const newProject = projectManager.createDefaultProject();
+
+            // Füge Event-Listener für die neue Karte hinzu
+            setTimeout(() => {
+                const projectCards = document.querySelectorAll('.project-card');
+                const lastCard = projectCards[projectCards.length - 1];
+                if (lastCard) {
+                    lastCard.addEventListener("click", () => {
+                        const viewerContainer = document.getElementById("viewer-container");
+                        if (viewerContainer) {
+                            initializeViewer(viewerContainer);
+                        }
+                    });
+                }
+            }, 100); // kurze Verzögerung, um sicherzustellen, dass das Element gerendert ist
+        });
+    }
+    */
 
     // Event-Listener für alle "Edit"-Buttons in Projekten
     document.addEventListener("click", (event) => {
@@ -99,3 +127,5 @@ if (importProjectsBtn) {
         projectManager.importFromJSON();
     });
 }
+
+

@@ -12,6 +12,9 @@
   "autor": "",
   "license": "MIT",
   "dependencies": {
+    "@thatopen/components": "^2.4.5",
+    "@thatopen/components-front": "^2.4.5",
+    "@thatopen/ui": "^2.4.4",
     "uuid": "^11.1.0"
   }
 }
