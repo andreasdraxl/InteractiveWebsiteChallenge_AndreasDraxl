@@ -94,13 +94,16 @@ const projectForm = document.getElementById("new-project-form");
 if (projectForm && projectForm instanceof HTMLFormElement) {
     projectForm.addEventListener("submit", (e) => {
         e.preventDefault();
+        
         const formData = new FormData(projectForm);
+        const dateString = formData.get("date") as string;
+        const finishDate = dateString ? new Date(dateString) : new Date(); 
         const projectData: IProject = {
             name: formData.get("name") as string || "",
             description: formData.get("description") as string || "",
             userRole: formData.get("role") as UserRole,
             status: formData.get("status") as ProjectStatus,
-            finishDate: new Date(formData.get("date") as string || "")
+            finishDate: finishDate
         };
         try {
             projectManager.newProject(projectData);
