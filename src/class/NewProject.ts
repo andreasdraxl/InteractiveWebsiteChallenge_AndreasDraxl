@@ -6,6 +6,7 @@ const defaultProject: IProject = {
     status: "pending",
     userRole: "developer",
     finishDate: new Date(),
+    ToDo: "Initial setup and planning"
 };
 
 export function createNewProject() {

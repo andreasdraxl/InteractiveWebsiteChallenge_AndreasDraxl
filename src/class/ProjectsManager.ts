@@ -43,6 +43,7 @@ export class ProjectsManager {
             status: "pending",
             userRole: "developer",
             finishDate: new Date(),
+            ToDo: "Default setup and planning"
         };
 
         this.newProject(defaultProject);

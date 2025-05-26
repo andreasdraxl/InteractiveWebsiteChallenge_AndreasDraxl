@@ -103,7 +103,8 @@ if (projectForm && projectForm instanceof HTMLFormElement) {
             description: formData.get("description") as string || "",
             userRole: formData.get("role") as UserRole,
             status: formData.get("status") as ProjectStatus,
-            finishDate: finishDate
+            finishDate: finishDate,
+            ToDo: formData.get("todo") as string || "",
         };
         try {
             projectManager.newProject(projectData);

@@ -9,6 +9,7 @@ export interface IProject {
     status: ProjectStatus;
     userRole: UserRole;
     finishDate: Date;
+    ToDo: string;
 }
 
 export class Project implements IProject {
@@ -17,6 +18,7 @@ export class Project implements IProject {
     status: ProjectStatus;
     userRole: UserRole;
     finishDate: Date;
+    ToDo: string;
 
     ui: HTMLDivElement;
     cost: number = 0;
@@ -29,6 +31,7 @@ export class Project implements IProject {
         this.status = data.status;
         this.userRole = data.userRole;
         this.finishDate = data.finishDate;
+        this.ToDo = data.ToDo || "";
         this.id = uuidv4();
 
         this.setUI();
